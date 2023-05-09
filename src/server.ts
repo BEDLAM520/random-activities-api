@@ -8,7 +8,7 @@ import { ActivityInterface, ActivityModel } from "./models/Activity";
 dotenv.config();
 
 const MONGODB_URL = process.env.MONGODB_URL || "";
-const SERVER_PORT = process.env.SERVER_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const ACTIVITY_ENDPOINT = process.env.ACTIVITY_ENDPOINT || "";
 
 mongoose
@@ -64,6 +64,6 @@ async function getActivity(): Promise<ActivityInterface> {
   return response.data;
 }
 
-app.listen(SERVER_PORT, () => {
-  console.log(`Server listening on port ${SERVER_PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
