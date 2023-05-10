@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { ActivityInterface, ActivityModel } from "./models/Activity";
 
@@ -24,6 +25,12 @@ mongoose
   });
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.get("/load-activities", async (req, res) => {
   try {
